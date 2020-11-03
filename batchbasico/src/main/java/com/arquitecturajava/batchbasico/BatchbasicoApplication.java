@@ -1,5 +1,6 @@
 package com.arquitecturajava.batchbasico;
 
+import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -40,6 +41,14 @@ public class BatchbasicoApplication {
 			
 		}).build();
 	}
+	
+	@Bean 
+	Job job() {
+		
+		return jobBuilderFactory.get("primerTrabajo").start(paso1()).build();
+		
+	}
+	
 	
 	
 	public static void main(String[] args) {
